@@ -1,7 +1,10 @@
-import unittest
-from calculator import *
+    import unittest
+    from calculator import *
 
-class TestCalculator(unittest.TestCase):
+
+    class TestCalculator(unittest.TestCase):
+
+
     ######### Partner 2
     # def test_add(self): # 3 assertions
     #     fill in code
@@ -32,7 +35,7 @@ class TestCalculator(unittest.TestCase):
     #     # use same technique from test_divide_by_zero
     #     fill in code
     # ##########################
-    
+
     ######## Partner 1
     # def test_log_invalid_argument(self): # 1 assertion
     #     # call log function inside, example:
@@ -52,8 +55,62 @@ class TestCalculator(unittest.TestCase):
     ##########################
 
 
+    # Do not touch this
+    if __name__ == "__main__":
+        unittest.main()
 
 
-# Do not touch this
-if __name__ == "__main__":
-    unittest.main()
+        # https://github.com/KamRice/lab11-KR-PA
+        # Partner 1: Kameron Rice
+        # Partner 2: Palmer Ackerbloom
+
+        # First example
+        def add(a, b):
+            if not isinstance(a, int):
+                print(f"TypeError for input: {a}")
+                return None
+            if not isinstance(b, int):
+                print(f"TypeError for input: {b}")
+                return None
+
+            return a + b
+
+
+        def subtract(a, b):
+            if not isinstance(a, int):
+                print(f"TypeError for input: {a}")
+                return None
+            if not isinstance(b, int):
+                print(f"TypeError for input: {b}")
+                return None
+
+            return a - b
+
+
+        def divide(a, b):
+            if not isinstance(a, int):
+                print(f"TypeError for input: {a}")
+                return None
+            if not isinstance(b, int):
+                print(f"TypeError for input: {b}")
+                return None
+
+            if b == 0:
+                raise ZeroDivisionError("division by zero")
+
+            return a / b
+
+
+        def logarithm(x, base):
+            if not isinstance(x, (int, float)) or not isinstance(base, (int, float)):
+                print(f"TypeError for input: {x} or {base}")
+                return None
+
+            if x <= 0 or base <= 0 or base == 1:
+                raise ValueError("Invalid input for logarithm")
+
+            import math
+            return math.log(x, base)
+
+
+
