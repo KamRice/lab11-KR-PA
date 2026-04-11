@@ -5,6 +5,17 @@
 import math
 
 
+def square_root(a):
+    try:
+        assert a > 0, "Value must be Positive Number."
+        return math.sqrt(a)
+    except AssertionError as err:
+        print(err)
+
+
+def hypotenuse(a, b):
+    return math.hypot(a, b)
+
 # First example
 def add(a, b):
     if not isinstance(a, int):
@@ -84,3 +95,4 @@ def exp(a, b):
     return a ** b
 
 
+square_root(-1)
