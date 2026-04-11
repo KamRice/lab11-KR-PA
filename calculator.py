@@ -50,20 +50,6 @@ def mul(a, b):
     return a * b
 
 
-def div(a, b):
-    if not isinstance(a, int):
-        print(f"TypeError for input: {a}")
-        return None
-    if not isinstance(b, int):
-        print(f"TypeError for input: {b}")
-        return None
-
-    try:
-        return a / b
-
-    except ZeroDivisionError:
-        print("Attempted to divide by 0.")
-
 
 def logarithm(a, b):
     if not isinstance(a, int):
@@ -95,4 +81,4 @@ def exp(a, b):
     return a ** b
 
 
-square_root(-1)
+
