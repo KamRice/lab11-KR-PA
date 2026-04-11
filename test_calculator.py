@@ -1,23 +1,14 @@
-<<<<<<< HEAD
 # https://github.com/KamRice/lab11-KR-PA
 # Partner 1: Kameron Rice
 # Partner 2: Palmer Ackerbloom
 
-
 import unittest
-from calculator import *
+import calculator
+
 
 class TestCalculator(unittest.TestCase):
     pass
-=======
-    import unittest
-    from calculator import *
 
-
-    class TestCalculator(unittest.TestCase):
-
-
->>>>>>> 3611c578f981dba317bebde19721a746f339b636
     ######### Partner 2
     # def test_add(self): # 3 assertions
     #     fill in code
@@ -26,13 +17,15 @@ class TestCalculator(unittest.TestCase):
     #     fill in code
     # ##########################
 
-    ######## Partner 1
-    # def test_multiply(self): # 3 assertions
-    #     fill in code
+    def test_multiply(self):  # 3 assertions
+        self.assertEqual(calculator.mul(5, 5), 25)
+        self.assertEqual(calculator.mul(-5, 5), -25)
+        self.assertEqual(calculator.mul(0, 5), 0)
 
-    # def test_divide(self): # 3 assertions
-    #     fill in code
-    # ##########################
+    def test_divide(self):  # 3 assertions
+        self.assertEqual(calculator.div(5, 0), None)
+        self.assertEqual(calculator.div(10, 5), 2)
+        self.assertEqual(calculator.div(-10, 5), -2)
 
     ######## Partner 2
     # def test_divide_by_zero(self): # 1 assertion
@@ -50,91 +43,20 @@ class TestCalculator(unittest.TestCase):
     # ##########################
 
     ######## Partner 1
-    # def test_log_invalid_argument(self): # 1 assertion
-    #     # call log function inside, example:
-    #     # with self.assertRaises(<INSERT_ERROR_TYPE>):
-    #     #     logarithm(0, 5)
-    #     fill in code
+    def test_log_invalid_argument(self):  # 1 assertion
+        self.assertIsNone(calculator.logarithm(0, 5))
+        self.assertIsNone(calculator.logarithm(-1, 5))
 
-    # def test_hypotenuse(self): # 3 assertions
-    #     fill in code
+    def test_hypotenuse(self):  # 3 assertions
+        self.assertAlmostEqual(calculator.hypotenuse(3, 3), 4.242640687119285)
+        self.assertAlmostEqual(calculator.hypotenuse(1, 1), 1.4142135623730951)
 
-    # def test_sqrt(self): # 3 assertions
-    #     # Test for invalid argument, example:
-    #     # with self.assertRaises(<INSERT_ERROR_TYPE>):
-    #     #    square_root(NUM)
-    #     # Test basic function
-    #     fill in code
+    def test_sqrt(self):  # 3 assertions
+        with self.assertRaises(ValueError):
+            calculator.square_root(-2)
+
     ##########################
-
 
     # Do not touch this
     if __name__ == "__main__":
         unittest.main()
-
-
-# https://github.com/KamRice/lab11-KR-PA
-# Partner 1: Kameron Rice
-# Partner 2: Palmer Ackerbloom
-
-
-# First example
-def add(a, b):
-   if not isinstance(a, int):
-       print(f"TypeError for input: {a}")
-       return None
-   if not isinstance(b, int):
-       print(f"TypeError for input: {b}")
-       return None
-
-
-   return a + b
-
-
-
-
-def subtract(a, b):
-   if not isinstance(a, int):
-       print(f"TypeError for input: {a}")
-       return None
-   if not isinstance(b, int):
-       print(f"TypeError for input: {b}")
-       return None
-
-
-   return a - b
-
-
-
-
-def divide(a, b):
-   if not isinstance(a, int):
-       print(f"TypeError for input: {a}")
-       return None
-   if not isinstance(b, int):
-       print(f"TypeError for input: {b}")
-       return None
-
-
-   if b == 0:
-       raise ZeroDivisionError("division by zero")
-
-
-   return a / b
-
-
-
-
-def logarithm(x, base):
-   if not isinstance(x, (int, float)) or not isinstance(base, (int, float)):
-       print(f"TypeError for input: {x} or {base}")
-       return None
-
-
-   if x <= 0 or base <= 0 or base == 1:
-       raise ValueError("Invalid input for logarithm")
-
-
-   import math
-   return math.log(x, base)
-
